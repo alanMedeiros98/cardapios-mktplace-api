@@ -16,26 +16,27 @@ public interface RestaurantesRepository extends JpaRepository<Restaurante, Integ
 	@Query(value = "SELECT r "
 				 + "FROM Restaurante r "
 				 + "JOIN FETCH r.categoria "
-			     + "WHERE Upper(r.nome) LIKE Upper(:nome)"
+			     + "WHERE Upper(r.nome) LIKE Upper(:nome) "
 			     + "AND r.categoria = :categoria "
-			     + "ORDER BY r.nome",
+			     + "ORDER BY r.nome ",
 			     countQuery = "SELECT Count(r) "
 			                + "FROM Restaurante r "
+			                + "WHERE Upper(r.nome) LIKE Upper(:nome) "
 			    		    + "AND r.categoria = :categoria ")
 	public Page<Restaurante> listarPor(String nome, Categoria categoria, Pageable paginacao);
 	
 	@Query(value = "SELECT r "
 				 + "FROM Restaurante r "
-				 + "WHERE Upper(r.nome) = Upper(:nome)")
+				 + "WHERE Upper(r.nome) = Upper(:nome) ")
 	public Restaurante buscarPor(String nome);
 	
 	@Query(value = "SELECT r "
 			     + "FROM Restaurante r "
-			     + "WHERE r.id = :id")
+			     + "WHERE r.id = :id ")
 	public Restaurante buscarPor(Integer id);
 	
 	@Query(value = "UPDATE Restaurante r "
 				 + "SET r.status = :status "
-				 + "WHERE r.id = :id")
+				 + "WHERE r.id = :id ")
 	public void atualizarPor(Integer id, Status status);
 }
