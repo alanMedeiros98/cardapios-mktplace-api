@@ -2,10 +2,11 @@ package br.com.senai.cardapiosmktplaceapi.entity;
 
 import java.math.BigDecimal;
 
+import br.com.senai.cardapiosmktplaceapi.entity.composite.OpcaoDoCardapioId;
 import br.com.senai.cardapiosmktplaceapi.entity.enums.Confirmacao;
 import br.com.senai.cardapiosmktplaceapi.entity.enums.Status;
 import jakarta.persistence.Column;
-import jakarta.persistence.Embedded;
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -22,14 +23,14 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@Table(name = "opcoes_do_cardapio")
+@Table(name = "opcoes_cardapios")
 @Entity(name = "OpcaoDoCardapio")
 public class OpcaoDoCardapio {
 
-	@Embedded
+	@EmbeddedId
 	@EqualsAndHashCode.Include
 	@NotNull(message = "O id da opção do cardapio é obrigatório")
-	private OpcaoDoCardapio id;
+	private OpcaoDoCardapioId id;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@MapsId("idDoCardapio")
@@ -38,8 +39,9 @@ public class OpcaoDoCardapio {
 	private Cardapio cardapio;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
+	@MapsId("idDaOpcao")
 	@JoinColumn(name = "id_opcao")
-	@NotNull(message = "A opão é obrigatória")
+	@NotNull(message = "A opção é obrigatória")
 	private Opcao opcao;
 	
 	@Enumerated(value = EnumType.STRING)
