@@ -69,4 +69,9 @@ public class Opcao {
 	@JoinColumn(name = "id_restaurante")
 	@NotNull(message = "O restaurante é obrigatório")
 	private Restaurante restaurante;
+	
+	public Opcao() {
+		this.status = Status.A;
+	}
+	
 }
