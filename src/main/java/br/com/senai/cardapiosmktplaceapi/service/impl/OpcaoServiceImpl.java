@@ -6,7 +6,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import br.com.senai.cardapiosmktplaceapi.entity.Opcao;
-import br.com.senai.cardapiosmktplaceapi.entity.Restaurante;
 import br.com.senai.cardapiosmktplaceapi.entity.enums.Status;
 import br.com.senai.cardapiosmktplaceapi.repository.OpcoesRepository;
 import br.com.senai.cardapiosmktplaceapi.repository.RestaurantesRepository;
@@ -50,5 +49,6 @@ public class OpcaoServiceImpl implements OpcaoService {
 		
 		return null;
 	}
+
 
 }
