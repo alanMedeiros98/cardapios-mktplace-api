@@ -74,4 +74,12 @@ public class Opcao {
 		this.status = Status.A;
 	}
 	
+	public boolean isAtiva() {
+		return getStatus() == Status.A;
+	}
+	
+	public boolean isEmpromocao() {
+		return getPromocao() == Confirmacao.S;
+	}
+	
 }

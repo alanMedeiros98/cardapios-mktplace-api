@@ -68,7 +68,7 @@ public class OpcaoDoCardapio {
 	@NotNull(message = "A seção é obrigatória")
 	private Secao secao;
 	
-	private OpcaoDoCardapio() {
+	public OpcaoDoCardapio() {
 		this.status = Status.A;
 	}
 	

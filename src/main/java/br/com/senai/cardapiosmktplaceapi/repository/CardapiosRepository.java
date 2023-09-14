@@ -29,7 +29,7 @@ public interface CardapiosRepository extends JpaRepository<Cardapio, Integer> {
 			     + "AND o.status = 'A' "
 			     + "ORDER BY oc.recomendado DESC, o.nome ",
 			     countQuery = "SELECT Count(c) "
-			     		    + "FROM Cardapio "
+			     		    + "FROM Cardapio c "
 			     		    + "WHERE c.restaurante = :restaurante ")
 	public Page<Cardapio> listarPor(Restaurante restaurante, Pageable paginacao);
 	

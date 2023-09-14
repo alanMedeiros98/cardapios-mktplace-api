@@ -10,10 +10,10 @@ import br.com.senai.cardapiosmktplaceapi.entity.Opcao;
 public interface OpcoesRepository extends JpaRepository<Opcao, Integer> {
 
 	@Query(value = "SELECT o "
-			     + "FROM Opcao "
+			     + "FROM Opcao o "
 			     + "JOIN FETCH o.categoria "
 			     + "JOIN FETCH o.restaurante "
-			     + "o WHERE o.id = :id")
+			     + "WHERE o.id = :id ")
 	public Opcao buscarPor(Integer id);
 	
 }

@@ -31,7 +31,7 @@ public interface CardapioService {
 			@NotNull(message = "O restaurante é obrigatório")
 			Restaurante restaurante, Pageable paginacao);
 	
-	public Cardapio BuscarPor(
+	public Cardapio buscarPor(
 			@NotNull(message = "O id é obrigatório")
 			@Positive(message = "O id deve ser positivo")
 			Integer id);
