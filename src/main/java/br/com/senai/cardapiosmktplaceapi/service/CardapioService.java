@@ -2,6 +2,7 @@ package br.com.senai.cardapiosmktplaceapi.service;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
 import br.com.senai.cardapiosmktplaceapi.dto.CardapioSalvo;
