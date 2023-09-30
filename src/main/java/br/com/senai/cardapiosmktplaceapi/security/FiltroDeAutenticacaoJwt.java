@@ -34,7 +34,7 @@ public class FiltroDeAutenticacaoJwt extends OncePerRequestFilter {
 		String login = null;
 		
 		boolean isHeaderAuthorizationPresent = authReader != null
-				&& authReader.startsWith("Bear ");
+				&& authReader.startsWith("Bearer ");
 		if (isHeaderAuthorizationPresent) {
 			token = authReader.substring(7);
 			login = gerenciadorDeToken.extrairLoginDo(token);
